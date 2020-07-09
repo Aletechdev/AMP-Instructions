@@ -51,7 +51,7 @@ sudo docker login
 Type the following command into your terminal/cmd:
 
 ```
-docker run -v "/absolute/path/to/your/data":/var/data -it --name amp muyaowu/alemutpipe bash -c '/amp.sh'
+docker run -v '/path/to/your/data':/var/data -it --name amp aletechdev/amp bash -i -c "source /root/.bashrc && /amp.sh"
 ```
 
 Make sure to replace the example path in quotations with your own absolute path to your folder/directory containing all the files
@@ -94,3 +94,16 @@ To run the project's unit tests, from the root of the project, execute the follo
 # Amplifications
 
 This pipeline currently uses a custom script to describe amplifications or copy number variants in the genome. Genome amplifications are identified with a custom script that identified discontinuities in read depth. The discontinuities are designated as amplifications if their read depth exceeded a threshold calculated as (2 * average) - (1 standard deviation) of the read depth for the sample's entire resequenced genome. To reduce small sporadic amplification events, 10 consecutive bases must pass above or below the threshold before a start or end position of an amplification region is designated.
+
+
+# Copy number variants
+
+This pipeline currently uses CNVnator to find copy number variants in the genome.
+
+It has also been implemented as a separate module to allow running on completed experiments.
+
+The outputs can be found inside each samples's breseq data and gatk folders as calling_output.tsv
+
+```
+docker run -v '/path/to/your/experiment':/var/data -it --name amp aletechdev/amp bash -i -c "source /root/.bashrc && /cnv.sh"
+```
