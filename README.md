@@ -105,5 +105,5 @@ It has also been implemented as a separate module to allow running on completed 
 The outputs can be found inside each samples's breseq data and gatk folders as calling_output.tsv
 
 ```
-docker run -v '/path/to/your/experiment':/var/data -it --name cnv aletechdev/amp bash -i -c "source /root/.bashrc && /cnv.sh"
+docker run -v '/path/to/your/experiment':/var/data -it --name cnv aletechdev/amp bash -i -c "time python3 /amp/alemutpipe/cnv_main.py /var/data/"
 ```
