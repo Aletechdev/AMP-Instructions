@@ -75,7 +75,7 @@ docker rm amp
 Remove the container and perform a pull of the latest docker hub image:
 
 ```
-docker pull muyaowu/alemutpipe
+docker pull aletechdev/amp
 ```
 
 
